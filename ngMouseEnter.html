@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-cn" ng-app>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<title>angularjs</title>
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet/less" href="styles/site.less">
+		<script src="scripts/jquery.js"></script>
+		<script src="bootstrap/js/bootstrap.js"></script>
+		<script src="scripts/less.js"></script>
+		<script src="scripts/angular-1.2.5.js"></script>
+	</head>
+	<body class="container">
+		<header class="page-header"><h1>index</h1></header>
+		<div ng-controller="imgCtrl">
+			<!--{{number}}-->
+			<div ng-repeat="n in number" class="col-sm-2">{{n}}
+				<img ng-mouseenter="met($event.target)"
+					 ng-mouseleave="mel($event.target)"
+					 class="img-responsive"
+					 ng-src="images/moko{{n}}.jpg"
+					 alt="">
+			</div>
+		</div>
+		<script>
+			function imgCtrl($scope,$http) {
+			    $scope.met = function (t) {
+					$(t).addClass("img-thumbnail");
+                };
+			    $scope.mel = function (t) {
+					$(t).removeClass("img-thumbnail");
+                };
+				$http.get("json/number.json")
+					.success(function (r) {
+						$scope.number = r;
+                    })
+            }
+		</script>
+		<section>
+			
+			<div data-ng-app="">
+							
+			</div>
+			
+		</section>
+		
+		<footer class="navbar-fixed-bottom text-center">
+			<span>&copy; 2015</span>
+		</footer>
+	</body>
+</html>

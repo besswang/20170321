@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-cn" ng-app>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<title>angularjs</title>
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet/less" href="styles/site.less">
+		<script src="scripts/jquery.js"></script>
+		<script src="bootstrap/js/bootstrap.js"></script>
+		<script src="scripts/less.js"></script>
+		<script src="scripts/angular-1.2.5.js"></script>
+	</head>
+	<body class="container">
+		<header class="page-header"><h1>index</h1></header>
+		<!--ng-controller控制器-->
+		<div ng-controller="changeCtrl">
+			<label id="lbl" class="label label-info"></label>
+			<input ng-model="msg" ng-change="changeFunc(msg)" type="text" class="form-control">
+			<button ng-click="clickFunc()" class="btn btn-primary" type="button">submit</button>
+		</div>
+		<script>
+			function changeCtrl($scope) {
+			    //alert();  //验证控制器是否加载
+                //changeFunc是来自于$scope对象的一个属性
+				$scope.changeFunc = function (msg) {//双向绑定了msg
+//					console.log(msg);
+					$("#lbl").html(msg);
+					//正则表达，当出现wanglijuan拼音的时候替换王立娟汉字
+					var reg = /wanglijuan/g;
+					$("#lbl").html(msg.replace(reg,"王立娟"));
+                };
+                $scope.clickFunc = function () {
+					$("h1").html($("#lbl").html());
+                }
+            }
+		</script>
+		<section>
+			
+			<div data-ng-app="">
+							
+			</div>
+			
+		</section>
+		
+		<footer class="navbar-fixed-bottom text-center">
+			<span>&copy; 2015</span>
+		</footer>
+	</body>
+</html>

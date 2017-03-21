@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<title>angularjs</title>
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet/less" href="styles/site.less">
+		<script src="scripts/jquery.js"></script>
+		<script src="bootstrap/js/bootstrap.js"></script>
+		<script src="scripts/less.js"></script>
+		<script src="scripts/angular-1.2.5.js"></script>
+	</head>
+	<body class="container">
+		<header class="page-header"><h1>index</h1></header>
+		
+		<section>
+			
+			<div data-ng-app="" class="focus">
+				<div class="lead">{{"AngularJS" + " " + "二元运算器"}}</div>
+				<kbd>12</kbd> + <kbd>3</kbd> = 
+				<span class="label label-info">{{12+3}}</span>		
+			</div>
+			
+		</section>
+		
+		<footer class="navbar-fixed-bottom text-center">
+			<span>&copy; 2015</span>
+		</footer>
+	</body>
+</html>

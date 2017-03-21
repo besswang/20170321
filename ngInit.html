@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<title>angularjs</title>
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet/less" href="styles/site.less">
+		<script src="scripts/jquery.js"></script>
+		<script src="bootstrap/js/bootstrap.js"></script>
+		<script src="scripts/less.js"></script>
+		<script src="scripts/angular-1.2.5.js"></script>
+	</head>
+	<body class="container">
+		<header class="page-header"><h1>index</h1></header>
+		
+		<section>
+			
+			<div data-ng-app="" data-ng-init="books=[
+				{pTotal:'合计',pCount:'数量',pName:'单价',price:10.99,count:5},
+				{pTotal:'合计',pCount:'数量',pName:'单价',price:20.99,count:15},
+				{pTotal:'合计',pCount:'数量',pName:'单价',price:30.99,count:5}
+			]">
+				<div class="list-group">
+					<div data-ng-repeat="b in books" class="list-group-item focus">
+						<span class="label label-success">{{b.pName}}</span>：{{b.price}}<br>
+						
+						<div class="row">
+							<div class="col-sm-2">
+								<span style="line-height: 35px;">{{b.pCount}}：</span>								
+							</div>
+							<div class="col-sm-4">
+								<input data-ng-model="b.count" type="text" class="form-control" />
+							</div>
+						</div>
+						
+						{{b.pTotal}}：{{b.price*b.count}}
+					</div>
+				</div>
+				
+			</div>
+			
+		</section>
+		
+		<footer class="navbar-fixed-bottom text-center">
+			<span>&copy; 2015</span>
+		</footer>
+	</body>
+</html>
